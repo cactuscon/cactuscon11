@@ -26,7 +26,7 @@ Thanks for participating in Cactuscon 11 and for purchasing a badge! While it ma
 We'll look at using the some more sophisticated functionality in a bit, but first let's start with the simplest program that can run the badge. We'll do most of our work in this tutorial within main.cpp. Open the file and add the following code to the top which will set some constant variables that we can use to reference the pins tied to the LEDs on the badge.
 
 ``` c
-#include <Ardunio.h>
+#include <Arduino.h>
 
 const int DRONE_CAMERA = 10; // Drone Camera LED
 const int HOUSE_RIGHT_EYE_RED = 13; // Set the pin for the red LED
@@ -40,7 +40,7 @@ const int HOUSE_LEFT_EYE_BLUE = 3;  // Set the pin for the  blue LED
 Once the constants have been defined, during setup these pins will need to be initalized to set them as OUTPUTs. We do this with the pinMode() function in ardunio. We'll also enable the serial console by calling Serial.begin with a baud rate of 115,200 (so it can be monitored by clicking the serial icon next to the beaker in the bottom left bar of VScode).
 
 ``` c
-setup () {
+void setup () {
     pinMode(DRONE_CAMERA, OUTPUT);
     pinMode(HOUSE_RIGHT_EYE_RED, OUTPUT);
     pinMode(HOUSE_RIGHT_EYE_GREEN, OUTPUT);
@@ -65,7 +65,7 @@ setup () {
 Now that everything has been set up, you can add whatever code within the loop function to make your badge do many different things. Here is just a simple example of blinking the house eyes red.
 
 ``` c
-loop () {
+void loop () {
     digitalWrite(HOUSE_RIGHT_EYE_RED, LOW);
     digitalWrite(HOUSE_LEFT_EYE_RED, LOW);
     delay(500); // sleep for 500 ms
